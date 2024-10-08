@@ -1,10 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prueba_fudo/core/constants/colors.dart';
+import 'package:prueba_fudo/data/models/user_model.dart';
+import 'package:prueba_fudo/data/providers/auth_provider.dart';
 import 'package:prueba_fudo/presentation/widgets/custom_button.dart';
-import 'package:prueba_fudo/presentation/widgets/custom_text_form_field.dart';
+import 'package:prueba_fudo/presentation/widgets/custom_text_field.dart';
 
-class LoginWidgets extends StatelessWidget {
+class LoginWidgets extends ConsumerStatefulWidget {
   const LoginWidgets({super.key});
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _LoginWidgetsState();
+}
+
+class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
+  final _userController = TextEditingController();
+
+  final _passwordController = TextEditingController();
+
+  bool get isValid {
+    if (_userController.text != '' && _passwordController.text != '') {
+      return true;
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +39,37 @@ class LoginWidgets extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 30),
-        const CustomTextFormField(
+        CustomTextFormField(
+          controller: _userController,
           labelText: 'User',
+          onChanged: (val) {
+            setState(() {});
+          },
         ),
         const SizedBox(height: 30),
-        const CustomTextFormField(
+        CustomTextFormField(
+          isPassword: true,
+          controller: _passwordController,
           labelText: 'Password',
+          onChanged: (val) {
+            setState(() {});
+          },
         ),
         const SizedBox(height: 60),
         CustomButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/posts');
-          },
+          isEnabled: isValid,
+          onPressed: () => onPressed(
+            _userController.text,
+            _passwordController.text,
+          ),
           text: 'Sign in',
         )
       ],
     );
+  }
+
+  void onPressed(String userName, String userPassword) {
+    final user = UserModel(userName: userName, password: userPassword);
+    ref.read(authProvider.notifier).login(user, context);
   }
 }

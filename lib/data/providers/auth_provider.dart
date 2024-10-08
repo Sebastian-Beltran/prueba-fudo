@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:prueba_fudo/core/constants/colors.dart';
 import 'package:prueba_fudo/data/models/user_model.dart';
 import 'package:prueba_fudo/presentation/state/auth_state.dart';
 
@@ -19,11 +21,38 @@ class PostNotifier extends StateNotifier<AuthState> {
 
   void resetState() => state = AuthState.initial();
 
-  Future<void> login(UserModel user) async {
+  Future<void> login(UserModel user, BuildContext context) async {
     if (user.userName == 'challenge@fudo' && user.password == 'password') {
-      //TODO Show snackbar correcto ingreso
+      // ScaffoldMessenger.of(context).showSnackBar(
+      // SnackBar(
+      //   content: const Text('Ingreso correcto'),
+      //   behavior: SnackBarBehavior.floating,
+      //   duration: const Duration(seconds: 3),
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(10),
+      //   ),
+      //   backgroundColor: Palette.green,
+      // ),
+      // );
+      state = state.copyWith(
+        isAuthenticated: true,
+      );
+      state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
     } else {
-      //TODO Show snackbar error
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Credenciales incorrectas'),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: Palette.red,
+        ),
+      );
+      state = state.copyWith(
+        isAuthenticated: false,
+      );
     }
   }
 }
