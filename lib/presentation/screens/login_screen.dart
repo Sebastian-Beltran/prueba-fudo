@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 200),
+        padding: const EdgeInsets.only(top: 180),
         child: Column(
           children: [
             Center(
@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                   topRight: Radius.circular(40.0),
                 ),
               ),
-              height: size.height * 0.5,
+              height: size.height * 0.52,
               child: const LoginWidgets(),
             ),
           ],

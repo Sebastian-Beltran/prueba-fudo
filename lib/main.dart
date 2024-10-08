@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prueba_fudo/core/constants/colors.dart';
 import 'package:prueba_fudo/presentation/screens/login_screen.dart';
+import 'package:prueba_fudo/presentation/screens/post_screen.dart';
 
 Future<void> main() async {
   runZonedGuarded<void>(() async {
@@ -43,10 +44,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
-      // routes: {
-      //   '/home': (context) => const HomeScreen(),
-      //   '/detail': (context) => const DetailsScreen(),
-      // },
+      routes: {
+        '/login': (context) => const LoginScreen(),
+        '/posts': (context) => const PostScreen(),
+      },
     );
   }
 }

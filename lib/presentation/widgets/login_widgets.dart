@@ -29,7 +29,9 @@ class LoginWidgets extends StatelessWidget {
         ),
         const SizedBox(height: 60),
         CustomButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/posts');
+          },
           text: 'Sign in',
         )
       ],
