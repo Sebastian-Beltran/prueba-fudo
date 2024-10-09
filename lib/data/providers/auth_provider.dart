@@ -22,42 +22,42 @@ class PostNotifier extends StateNotifier<AuthState> {
   void resetState() => state = AuthState.initial();
 
   Future<void> login(UserAuth user, BuildContext context) async {
-    state = state.copyWith(
-      isAuthenticated: true,
-    );
-    state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
+    // state = state.copyWith(
+    //   isAuthenticated: true,
+    // );
+    // state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
 
-    // if (user.userName == 'challenge@fudo' && user.password == 'password') {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: const Text('Ingreso correcto'),
-    //       behavior: SnackBarBehavior.floating,
-    //       duration: const Duration(seconds: 3),
-    //       shape: RoundedRectangleBorder(
-    //         borderRadius: BorderRadius.circular(10),
-    //       ),
-    //       backgroundColor: Palette.green,
-    //     ),
-    //   );
-    //   state = state.copyWith(
-    //     isAuthenticated: true,
-    //   );
-    //   state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
-    // } else {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: const Text('Credenciales incorrectas'),
-    //       behavior: SnackBarBehavior.floating,
-    //       duration: const Duration(seconds: 3),
-    //       shape: RoundedRectangleBorder(
-    //         borderRadius: BorderRadius.circular(10),
-    //       ),
-    //       backgroundColor: Palette.red,
-    //     ),
-    //   );
-    //   state = state.copyWith(
-    //     isAuthenticated: false,
-    //   );
-    // }
+    if (user.userName == 'challenge@fudo' && user.password == 'password') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Ingreso correcto'),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: Palette.green,
+        ),
+      );
+      state = state.copyWith(
+        isAuthenticated: true,
+      );
+      state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Credenciales incorrectas'),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: Palette.red,
+        ),
+      );
+      state = state.copyWith(
+        isAuthenticated: false,
+      );
+    }
   }
 }
