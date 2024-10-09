@@ -55,7 +55,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
             setState(() {});
           },
         ),
-        const SizedBox(height: 60),
+        const SizedBox(height: 70),
         CustomButton(
           isEnabled: isValid,
           onPressed: () => onPressed(
@@ -63,7 +63,8 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
             _passwordController.text,
           ),
           text: 'Sign in',
-        )
+        ),
+        const SizedBox(height: 10),
       ],
     );
   }

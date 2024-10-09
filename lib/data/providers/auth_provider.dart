@@ -27,17 +27,17 @@ class PostNotifier extends StateNotifier<AuthState> {
     );
     state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
     // if (user.userName == 'challenge@fudo' && user.password == 'password') {
-    //   // ScaffoldMessenger.of(context).showSnackBar(
-    //   // SnackBar(
-    //   //   content: const Text('Ingreso correcto'),
-    //   //   behavior: SnackBarBehavior.floating,
-    //   //   duration: const Duration(seconds: 3),
-    //   //   shape: RoundedRectangleBorder(
-    //   //     borderRadius: BorderRadius.circular(10),
-    //   //   ),
-    //   //   backgroundColor: Palette.green,
-    //   // ),
-    //   // );
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(
+    //       content: const Text('Ingreso correcto'),
+    //       behavior: SnackBarBehavior.floating,
+    //       duration: const Duration(seconds: 3),
+    //       shape: RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(10),
+    //       ),
+    //       backgroundColor: Palette.green,
+    //     ),
+    //   );
     //   state = state.copyWith(
     //     isAuthenticated: true,
     //   );

@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prueba_fudo/core/constants/palette.dart';
+import 'package:prueba_fudo/presentation/screens/create_post_screen.dart';
 import 'package:prueba_fudo/presentation/screens/login_screen.dart';
 import 'package:prueba_fudo/presentation/screens/post_screen.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'S',
+      title: 'Fudo',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Palette.white,
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginScreen(),
         '/posts': (context) => const PostScreen(),
+        '/create': (context) => const CreatePostScreen(),
       },
     );
   }

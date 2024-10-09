@@ -45,4 +45,20 @@ class PostServiceImpl implements PostService {
       return Left(e.toString());
     }
   }
+
+  @override
+  Future<String> createPost({required Post post}) async {
+    try {
+      const path = '/posts';
+      final body = <String, dynamic>{
+        'title': post.title,
+        'body': post.body,
+        'userId': post.userId,
+      };
+      await client.performPost(path, body);
+      return 'Post creado correctamente';
+    } catch (e) {
+      return e.toString();
+    }
+  }
 }

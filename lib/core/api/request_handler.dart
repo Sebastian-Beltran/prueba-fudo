@@ -62,6 +62,6 @@ class RequestHandlerImpl extends RequestHandler {
   final String basePath = 'https://jsonplaceholder.typicode.com';
 
   final headers = <String, String>{
-    'Accept': 'application/json',
+    'Content-type': 'application/json; charset=UTF-8',
   };
 }

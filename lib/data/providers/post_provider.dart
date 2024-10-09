@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:prueba_fudo/data/models/post_model.dart';
 import 'package:prueba_fudo/data/services/post_service.dart';
 import 'package:prueba_fudo/data/services/post_service_impl.dart';
 import 'package:prueba_fudo/presentation/state/post_state.dart';
@@ -37,5 +39,27 @@ class PostNotifier extends StateNotifier<PostState> {
         isInitState: false,
       ),
     );
+  }
+
+  Future<void> createPost(
+    Post post,
+    BuildContext context,
+  ) async {
+    state = state.copyWith(isLoading: true);
+    final res = await postService.createPost(post: post);
+    state = state.copyWith(isLoading: false);
+    await Future.delayed(const Duration(microseconds: 1));
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      );
+    }
   }
 }

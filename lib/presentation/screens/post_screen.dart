@@ -8,6 +8,7 @@ import 'package:prueba_fudo/data/providers/post_provider.dart';
 import 'package:prueba_fudo/data/providers/user_provider.dart';
 import 'package:prueba_fudo/presentation/widgets/card_post_widget.dart';
 import 'package:prueba_fudo/presentation/widgets/circular_progress.dart';
+import 'package:prueba_fudo/presentation/widgets/custom_app_bar.dart';
 import 'package:prueba_fudo/presentation/widgets/custom_drop_down_search.dart';
 
 class PostScreen extends ConsumerStatefulWidget {
@@ -32,21 +33,17 @@ class _PostScreenState extends ConsumerState<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Post',
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(),
       body: Column(
         children: [
           Consumer(builder: (builder, ref, child) {
             final userState = ref.watch(userProvider);
             if (userState.isError != null) {
-              return Text(userState.isError!);
+              return const Center(
+                child: Text(
+                  'Error al traer el listado de usuarios',
+                ),
+              );
             } else if (userState.isInitState) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 ref.read(postProvider.notifier).getPostsList();
@@ -97,7 +94,11 @@ class _PostScreenState extends ConsumerState<PostScreen> {
             builder: (builder, ref, child) {
               final postState = ref.watch(postProvider);
               if (postState.isError != null) {
-                return Text(postState.isError!);
+                return const Center(
+                  child: Text(
+                    'Error al traer el listado de Posts',
+                  ),
+                );
               } else if (postState.isInitState) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   ref.read(postProvider.notifier).getPostsList();
@@ -127,7 +128,9 @@ class _PostScreenState extends ConsumerState<PostScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/create');
+        },
         backgroundColor: Palette.primary,
         child: const Icon(
           Icons.add,
