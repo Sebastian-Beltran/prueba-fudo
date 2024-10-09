@@ -35,7 +35,6 @@ dependencies:
   flutter_svg: ^2.0.5
   dropdown_search: ^6.0.1
   http: ^1.2.2
-  url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1
   mockito: ^5.4.4
   flutter:

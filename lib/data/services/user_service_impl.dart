@@ -25,7 +25,7 @@ class UserServiceImpl implements UserService {
   @override
   Future<Either<String, List<UserModel>>> getUsers() async {
     try {
-      const path = '//users';
+      const path = '/users';
       final res = await client.performGet(path);
       final body = json.decode(
         res.body.trim(),

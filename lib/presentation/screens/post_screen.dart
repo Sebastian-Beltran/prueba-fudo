@@ -62,7 +62,6 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                     ref.read(postProvider.notifier).getPostsList(userId: s?.id);
                   },
                   itemBuilder: (context, item, isDisabled, isSelected) {
-                    // return Text(item.name);
                     return ListTile(
                       leading: Container(
                         width: 40,
