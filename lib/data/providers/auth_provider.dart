@@ -26,6 +26,7 @@ class PostNotifier extends StateNotifier<AuthState> {
       isAuthenticated: true,
     );
     state.isAuthenticated ? Navigator.pushNamed(context, '/posts') : null;
+
     // if (user.userName == 'challenge@fudo' && user.password == 'password') {
     //   ScaffoldMessenger.of(context).showSnackBar(
     //     SnackBar(

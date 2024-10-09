@@ -18,6 +18,11 @@ class CustomDropDownSearch<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<T>(
+      suffixProps: const DropdownSuffixProps(
+        clearButtonProps: ClearButtonProps(
+          isVisible: true,
+        ),
+      ),
       key: key,
       items: (filter, infiniteScrollProps) => items,
       compareFn: (i, s) => i == s,

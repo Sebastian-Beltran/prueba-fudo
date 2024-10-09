@@ -59,7 +59,7 @@ class _PostScreenState extends ConsumerState<PostScreen> {
                   itemAsString: (s) => s.name,
                   items: users,
                   onChanged: (s) {
-                    ref.read(postProvider.notifier).getPostsList(userId: s!.id);
+                    ref.read(postProvider.notifier).getPostsList(userId: s?.id);
                   },
                   itemBuilder: (context, item, isDisabled, isSelected) {
                     // return Text(item.name);
