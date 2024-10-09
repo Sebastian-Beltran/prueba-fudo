@@ -29,7 +29,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 30),
+        const SizedBox(height: 10),
         Text(
           'Login',
           style: TextStyle(
@@ -38,7 +38,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
             fontSize: 24,
           ),
         ),
-        const SizedBox(height: 30),
+        const SizedBox(height: 20),
         CustomTextFormField(
           controller: _userController,
           labelText: 'User',
@@ -55,7 +55,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
             setState(() {});
           },
         ),
-        const SizedBox(height: 70),
+        const SizedBox(height: 30),
         CustomButton(
           isEnabled: isValid,
           onPressed: () => onPressed(
@@ -64,7 +64,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
           ),
           text: 'Sign in',
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
       ],
     );
   }

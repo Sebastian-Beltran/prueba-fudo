@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Palette.primary,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 200),
+          padding: EdgeInsets.only(top: size.height * 0.15),
           child: Column(
             children: [
               Center(
@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   color: Palette.white,
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               Container(
                 padding: const EdgeInsets.all(30),
                 decoration: const BoxDecoration(
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                     topRight: Radius.circular(40.0),
                   ),
                 ),
-                height: size.height * 0.5,
+                height: size.height * 0.6,
                 child: const LoginWidgets(),
               ),
             ],
