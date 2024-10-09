@@ -56,6 +56,12 @@ class CustomDropDownSearch<T> extends StatelessWidget {
       ),
       popupProps: PopupProps.menu(
         showSearchBox: true,
+        searchFieldProps: const TextFieldProps(
+          decoration: InputDecoration(
+            hintText: 'Buscar usuario...',
+            icon: Icon(Icons.search),
+          ),
+        ),
         fit: FlexFit.loose,
         itemBuilder: itemBuilder,
         constraints: const BoxConstraints(),
