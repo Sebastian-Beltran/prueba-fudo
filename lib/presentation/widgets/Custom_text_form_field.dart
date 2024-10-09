@@ -4,23 +4,14 @@ import 'package:prueba_fudo/core/constants/palette.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     required this.labelText,
-    required this.controller,
-    required this.onChanged,
-    this.isPassword = false,
     super.key,
   });
 
   final String labelText;
-  final TextEditingController controller;
-  final Function(String)? onChanged;
-  final bool? isPassword;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      onChanged: onChanged,
-      obscureText: isPassword ?? false,
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: const TextStyle(color: Colors.grey),

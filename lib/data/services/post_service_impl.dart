@@ -23,9 +23,14 @@ class PostServiceImpl implements PostService {
   final RequestHandler client;
 
   @override
-  Future<Either<String, List<Post>>> getPostList() async {
+  Future<Either<String, List<Post>>> getPostList({int? userId}) async {
     try {
-      const path = '/posts';
+      String path;
+      if (userId == null) {
+        path = '/posts';
+      } else {
+        path = '/posts?userId=$userId';
+      }
       final res = await client.performGet(path);
       final body = json.decode(
         res.body.trim(),

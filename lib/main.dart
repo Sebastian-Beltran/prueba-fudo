@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:prueba_fudo/core/constants/colors.dart';
+import 'package:prueba_fudo/core/constants/palette.dart';
 import 'package:prueba_fudo/presentation/screens/login_screen.dart';
 import 'package:prueba_fudo/presentation/screens/post_screen.dart';
 
@@ -27,18 +27,16 @@ class MyApp extends StatelessWidget {
       title: 'S',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Palette.primary,
-          iconTheme: const IconThemeData(
-            color: Colors.white,
-          ),
+          backgroundColor: Palette.white,
+          iconTheme: const IconThemeData(),
         ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
             fontSize: 20,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
-        scaffoldBackgroundColor: Palette.primary,
+        scaffoldBackgroundColor: Palette.white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),

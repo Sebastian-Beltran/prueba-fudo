@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:prueba_fudo/core/constants/palette.dart';
 import 'package:prueba_fudo/presentation/widgets/login_widgets.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Palette.primary,
       body: Padding(
         padding: const EdgeInsets.only(top: 180),
         child: Column(
@@ -21,14 +23,15 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            const Text(
+            Text(
               'Welcome!',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
+                color: Palette.white,
               ),
             ),
-            const SizedBox(height: 10),
+            const Spacer(),
             Container(
               padding: const EdgeInsets.all(30),
               decoration: const BoxDecoration(

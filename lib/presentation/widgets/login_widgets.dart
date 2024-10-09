@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:prueba_fudo/core/constants/colors.dart';
-import 'package:prueba_fudo/data/models/user_model.dart';
+import 'package:prueba_fudo/core/constants/palette.dart';
+import 'package:prueba_fudo/data/models/user_auth_model.dart';
 import 'package:prueba_fudo/data/providers/auth_provider.dart';
 import 'package:prueba_fudo/presentation/widgets/custom_button.dart';
 import 'package:prueba_fudo/presentation/widgets/custom_text_field.dart';
@@ -69,7 +69,7 @@ class _LoginWidgetsState extends ConsumerState<LoginWidgets> {
   }
 
   void onPressed(String userName, String userPassword) {
-    final user = UserModel(userName: userName, password: userPassword);
+    final user = UserAuth(userName: userName, password: userPassword);
     ref.read(authProvider.notifier).login(user, context);
   }
 }

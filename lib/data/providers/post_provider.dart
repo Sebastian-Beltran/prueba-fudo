@@ -23,9 +23,9 @@ class PostNotifier extends StateNotifier<PostState> {
 
   void resetState() => state = PostState.initial();
 
-  Future<void> getPostsList() async {
+  Future<void> getPostsList({int? userId}) async {
     state = state.copyWith(isLoading: true);
-    final res = await postService.getPostList();
+    final res = await postService.getPostList(userId: userId);
     state = state.copyWith(isLoading: false);
     res.fold(
       (left) => state = state.copyWith(
