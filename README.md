@@ -15,7 +15,7 @@ Arquitectura utilizada en el app:
 ![Arquitectura](assets/architecture.jpg)
 
 ## Instalación
-Para la instalacion del proyecto debemos tener en cuenta las versiones de [Flutter](https://flutter.dev/).
+Para la instalación del proyecto debemos tener en cuenta las versiones de [Flutter](https://flutter.dev/).
 
 Clonar el repositorio:
 
