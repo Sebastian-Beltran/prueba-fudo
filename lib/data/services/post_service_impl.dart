@@ -36,8 +36,11 @@ class PostServiceImpl implements PostService {
         res.body.trim(),
       );
 
-      final listPost = List<Post>.from(body
-          .map((dynamic item) => Post.fromJson(item as Map<String, dynamic>)));
+      final listPost = List<Post>.from(
+        body.map(
+          (dynamic item) => Post.fromJson(item as Map<String, dynamic>),
+        ),
+      );
       return Right(
         listPost,
       );
