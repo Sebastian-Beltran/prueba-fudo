@@ -1,7 +1,7 @@
 # Challenge FUDO
 ## Prueba tecnica Flutter developer
 
-Proyecto realizado para el challenge de FUDO, en este proyecto utilice el gestor de estados de Riverpod. 💻
+Proyecto realizado para el challenge de FUDO, en este proyecto utilicé el gestor de estados de Riverpod, agregando también testing de service y de widgets. 💻
 
 ## Características
 El proyecto se compone principalmente por tres features principales
@@ -39,7 +39,15 @@ Para correr el proyecto se debe correr el siguiente comando:
 ```sh
 flutter run
 ```
-
+## Testing
+El proyecto cuenta con testing de service y de widgets para poder correr los test primero debemos generar los mock con el siguiente comando:
+```sh
+dart run build_runner build —delete-conflicting-outputs
+```
+Luego para ver el resultado de los test podemos correr el siguiente comando:
+```sh
+flutter test
+```
 ## Tecnologías Usadas
 - [Flutter](https://flutter.dev/) - Framework de desarrollo.
 - [Dart](https://dart.dev/) - Lenguaje de programación.
